@@ -15,5 +15,3 @@
 /.emacs.d/tramp
 /.emacs.d/url
 /.emacs.d/var
-/bin/lein
-/bin/sbt
