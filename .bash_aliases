@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -13,3 +14,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+alias ack='ack-grep'
+alias gi='git'
+alias gti='git'
+alias gitd='git diff'
+alias gits='git st'
