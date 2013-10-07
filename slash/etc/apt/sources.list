@@ -1,0 +1,14 @@
+# deb cdrom:[Debian GNU/Linux testing _Wheezy_ - Official Snapshot i386 xfce-CD Binary-1 20130121-03:53]/ wheezy main
+
+#Unstable
+deb http://debian.mirrors.tds.net/debian/ sid main non-free contrib
+deb-src http://debian.mirrors.tds.net/debian/ sid main non-free contrib
+
+#Testing
+#deb http://debian.mirrors.tds.net/debian/ wheezy main non-free contrib
+#deb-src http://debian.mirrors.tds.net/debian/ wheezy main non-free contrib
+
+#Commented when switching to unstable because security updates aren't
+#available on sid as they go directly into the main archive
+#deb http://security.debian.org/ wheezy/updates main contrib non-free
+#deb-src http://security.debian.org/ wheezy/updates main contrib non-free

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+/usr/bin/gnome-keyring-daemon --start --components=pkcs11
+/usr/bin/stumpwm
