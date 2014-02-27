@@ -2,10 +2,10 @@
 Name=Conkeror
 GenericName=Web Browser
 Comment=Emacs love
-Exec=/home/andrew/bin/conkeror
+Exec=/usr/bin/conkeror
 Terminal=false
 Type=Application
-Icon=/home/andrew/work/conkeror/macrobat_conkeror_icon_64.png
+Icon=/usr/share/icons/macrobat_conkeror_icon_64.png
 Categories=GNOME;GTK;Network;WebBrowser;
 StartupNotify=true
 OnlyShowIn=Unity;
