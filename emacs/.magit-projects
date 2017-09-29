@@ -1,0 +1,4 @@
+(setq magit-projects
+  (quote (
+    ("~/src/dotemacs" . 0)
+    ("~/src/dotfiles" . 0))))
