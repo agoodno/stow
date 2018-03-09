@@ -3,7 +3,7 @@ echo 'executing .bashrc'
 #Addition of /usr/local/bin only needed by emacs (duplicates
 #/usr/local/bin path in terminal because terminal also picks it up
 #from /etc/paths but can live with this).
-export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="$HOME/local/sbin:$HOME/local/bin:/usr/local/sbin:/usr/local/bin:$PATH"
 export PS1="\u@\h:\w $ "
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -11,12 +11,12 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 #export AWS_REGION=us-east-1
 #export AWS_ACCESS_KEY_ID=XXX
 #export AWS_SECRET_ACCESS_KEY=XXX
-export ALTERNATE_EDITOR=""
-export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9/emacsclient
+#export ALTERNATE_EDITOR=""
+export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
 export GIT_EDITOR=$EDITOR
 
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+# source /usr/local/opt/chruby/share/chruby/chruby.sh
+# source /usr/local/opt/chruby/share/chruby/auto.sh
 
 # Java setup
 ## download from http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html

@@ -1,0 +1,211 @@
+#images are all in the root of sourcepics
+#images are written to the current directory ./2014/07/25 etc
+#operation is a move not a copy, but there is a flag to copy instead
+exiftool "-Directory<DateTimeOriginal" -d "%Y/%m/%d" sourcepics/
+
+#images are contained in any level of depth of directory in sourcepics
+#images are written to targetpics/2014/07/25/ etc
+#operation is a copy due to the -o flag (the dummy/ dir marker is needed when target directory is made up on the fly using -Directory<DateTimeOriginal or similarA
+exiftool "-Directory<DateTimeOriginal" -o dummy/ -d "targetpics/%Y/%m/%d" sourcepics/*
+
+
+
+
+session:
+
+142  mkdir tmp
+  143  cd tmp/
+  144  exiftool "-Directory<DateTimeOriginal" -o andypics -d "%Y/%m/%d" ~/Dropbox/Photos\ from\ iPhoto/
+  145  brew search exif
+  146  brew install exiftool
+  147  exiftool "-Directory<DateTimeOriginal" -o andypics -d "%Y/%m/%d" ~/Dropbox/Photos\ from\ iPhoto/
+  148  ls
+  149  exiftool "-Directory<DateTimeOriginal" -o andypics -d "%Y/%m/%d" "~/Dropbox/Photos from iPhoto/"
+  150  exiftool "-Directory<DateTimeOriginal" -d "%Y/%m/%d" "~/Dropbox/Photos from iPhoto/"
+  151  ls
+  152  mkdir sourcepics
+  153  cd sourcepics/
+  154  cd ..
+  155  exiftool "-Directory<DateTimeOriginal" -d "%Y/%m/%d" sourcepics/
+  156  ls
+  157  ls -r targetpics/
+  158  ls
+  159  exiftool "-Directory<DateTimeOriginal" -d "%Y/%m/%d" sourcepics/
+  160  ls
+  161  cd sourcepics/
+  162  ls
+  163  cd ..
+  164  ls
+  165  cd targetpics/
+  166  ls
+  167  cd ..
+  168  exiftool "-Directory<DateTimeOriginal" -d "%Y/%m/%d" sourcepics/ -o targetpics/
+  169  ls
+  170  cd targetpics/
+  171  ls
+  172  cd ..
+  173  exiftool --version
+  174  exiftool "-FileName<CreateDate" -d "%Y/%m/%d" sourcepics/ -o targetpics/
+  175  ls -R targetpics/
+  176  source 
+  177  ls -R sourcepics/
+  178  exiftool "-FileName<CreateDate" -d "%Y/%m/%d" sourcepics/* -o targetpics/
+  179  ls -R targetpics/
+  180  cd targetpics/
+  181  ls
+  182  cd ..
+  183  cd sourcepics/
+  184  ls
+  185  cd Apr\ 27\,\ 2014/
+  186  ls
+  187  cd ../Jul\ 5\,\ 2014/
+  188  ls
+  189  cd ../..
+  190  exiftool "-Directory<DateTimeOriginal" -d "%Y/%m/%d" sourcepics/* -o targetpics/
+  191  exiftool "-Directory<DateTimeOriginal" -d "%Y/%m/%d" "sourcepics/*" -o targetpics/
+  192  exiftool "-Directory<DateTimeOriginal" "-testname<CreateDate" -d "%Y/%m/%d" sourcepics/* -o targetpics/
+  193  cd sourcepics/
+  194  ls
+  195  cd Apr\ 27\,\ 2014/
+  196  ls
+  197  mv * ..
+  198  ls
+  199  cd ..
+  200  cd Jul\ 5\,\ 2014/
+  201  mv * ..
+  202  cd ..
+  203  ls
+  204  rmdir Apr\ 27\,\ 2014/
+  205  rmdir Jul\ 5\,\ 2014/
+  206  ls
+  207  cd ..
+  208  exiftool "-Directory<DateTimeOriginal" -d "%Y/%m/%d" "sourcepics/*" -o targetpics/
+  209  exiftool "-Directory<DateTimeOriginal" -d "%Y/%m/%d" sourcepics/* -o targetpics/
+  210  exiftool "-Directory<DateTimeOriginal" "-testname<CreateDate" -d "%Y/%m/%d" sourcepics/* -o targetpics/
+  211  ls
+  212  ls -la
+  213  cd 2014/
+  214  ls
+  215  cd 04/
+  216  ls
+  217  cd 27 
+  218  ls
+  219  ls
+  220  cd 27 
+  221  ls
+  222  ls
+  223  cd 27
+  224  ls
+  225  cd ../
+  226  cd ..
+  227  ls
+  228  rm -rf 2014
+  229  cd sourcepics/
+  230  ls
+  231  cd ..
+  232  exiftool "-Directory<DateTimeOriginal" "-testname<%H-%M-%S" -d "%Y/%m/%d" sourcepics/* -o targetpics/
+  233  ls
+  234  cd targetpics/
+  235  ls
+  236  cd ..
+  237  ls -R 2014/
+  238  ls -R sourcepics/
+  239  rm -rf 2014
+  240  exiftool "-Directory<DateTimeOriginal" -d "%Y/%m/%d" sourcepics/* -o targetpics/
+  241  ls -R targetpics/
+  242  exiftool "-Directory<DateTimeOriginal" -o targetpics/ -d "%Y/%m/%d" sourcepics/*
+  243  ls -R targetpics/
+  244  rm -rf 2014
+  245  exiftool "-Directory<DateTimeOriginal" -o targetpics/ -d "%Y/%m/%d" sourcepics/*
+  246  ls
+  247  ls -R 2014/
+  248  rm -rf 2014
+  249  exiftool "-Directory<DateTimeOriginal" -d "targetpics/%Y/%m/%d" sourcepics/*
+  250  ls
+  251  cd targetpics/
+  252  ls
+  253  cd 2014/
+  254  ls
+  255  cd ../..
+  256  cd ~/tmp/
+  257  ls
+  258  exiftool "-Directory<DateTimeOriginal" -d "targetpics/%Y/%m/%d" sourcepics/*
+  259  exiftool "-Directory<DateTimeOriginal" -o -d "targetpics/%Y/%m/%d" sourcepics/*
+  260  exiftool "-Directory<DateTimeOriginal" -o dummy/ -d "targetpics/%Y/%m/%d" sourcepics/*
+  261  cd ~/
+  262  ls Dropbox/Photos\ from\ iPhoto/
+  263  readlink -f Dropbox/Photos\ from\ iPhoto/
+  264  cat /etc/hosts
+  265  ssh root@socrates 
+  266  history
+  267  cd Dropbox/bin
+  268  ls -latr
+  269  chmod u+x exiftool_iphoto_to_dropbox_shuffle.sh 
+  270  ls
+  271  ls -latr
+  272  cat exiftool_iphoto_to_dropbox_shuffle.sh 
+  273  ./exiftool_iphoto_to_dropbox_shuffle.sh 
+  274  ls
+  275  cd dummy/
+  276  ls
+  277  cd ..
+  278  ls
+  279  cd ~
+  280  ls
+  281  cd Dropbox/
+  282  cd bin
+  283  ls
+  284  cd "~"
+  285  ls
+  286  cd Dropbox/
+  287  ls
+  288  cd Test_Media/
+  289  ls
+  290  cd 2013/
+  291  ls
+  292  cd ../..
+  293  cd ..
+  294  cd ..
+  295  mv "~" test
+  296  ls
+  297  cat exiftool_iphoto_to_dropbox_shuffle.sh 
+  298  echo $HOME
+  299  pwd
+  300  ./exiftool_iphoto_to_dropbox_shuffle.sh 
+  301  cd ../..
+  302  cd tmp/
+  303  ls
+  304  rm -rf test/
+  305  ls -R sourcepics/
+  306  rm -rf targetpics/
+  307  exiftool "-Directory<DateTimeOriginal" "-filename<%%f.%%e" -o dummy/ -d "targetpics/%Y/%m/%d" sourcepics/*
+  308  ls -R targetpics/
+  309  exiftool "-Directory<DateTimeOriginal" "-filename<%%f.%%e" -o dummy/ -d "targetpics/%Y/%m/%d/%%f.%%e" sourcepics/*
+  310  exiftool "-Directory<DateTimeOriginal" "-filename<%%f.%%e" -o dummy/ -d "targetpics/%Y/%m/%d/%Y-%m-%d %H.%M.%S.%%e" sourcepics/*
+  311  rm -rf targetpics/
+  312  exiftool "-Directory<DateTimeOriginal" "-filename<%%f.%%e" -o dummy/ -d "targetpics/%Y/%m/%d/%Y-%m-%d %H.%M.%S.%%e" sourcepics/*
+  313  ls -R targetpics/
+  314  exiftool "-Directory<DateTimeOriginal" "-filename<%%f.%%e" -o dummy/ -d "targetpics/%Y/%m/%d/%H.%M.%S.%%e" sourcepics/*
+  315  ls -R targetpics/
+  316  rm -rf targetpics/
+  317  exiftool "-Directory<DateTimeOriginal" "-filename%%f.%%e" -o dummy/ -d "targetpics/%Y/%m/%d/%H.%M.%S.%%e" sourcepics/*
+  318  ls -R targetpics/
+  319  rm -rf targetpics/
+  320  cat exiftool_iphoto_to_dropbox_shuffle.sh 
+  321  mv sourcepics/ iPhoto_export
+  322  ls
+  323  cd ~/Dropbox/bin
+  324  cat ./exiftool_iphoto_to_dropbox_shuffle.sh 
+  325  ./exiftool_iphoto_to_dropbox_shuffle.sh 
+  326  ls
+  327  ls ~/tmp/iPhoto_export/
+  328  ls *.MOV
+  329  ls "*.MOV"
+  330  find -name "*.MOV"
+  331  find ./ -name "*.MOV"
+  332  find ~/tmp/iPhoto_export/ -name "*.MOV"
+  333  ./exiftool_iphoto_to_dropbox_shuffle.sh 
+  334  ls ~/tmp/iPhoto_export/
+  335  ssh root@socrates 
+  336  ssh root@socrates 
+  337  cd /Users

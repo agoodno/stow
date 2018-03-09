@@ -1,0 +1,6 @@
+#!/bin/sh
+sudo svnadmin create --fs-type fsfs /var/lib/svn/repos/$1
+sudo chown -R www-data:users /var/lib/svn/repos/$1
+sudo chmod g+w -R /var/lib/svn/repos/$1/db
+sudo chmod g+w -R /var/lib/svn/repos/$1/hooks
+sudo chmod g+w -R /var/lib/svn/repos/$1/locks
