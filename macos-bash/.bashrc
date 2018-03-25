@@ -26,6 +26,10 @@ export GIT_EDITOR=$EDITOR
 ### echo $JAVA_HOME; java -version
 ### setjdk 1.8.0_141 (new one)
 ### echo $JAVA_HOME; java -version
+#
+# You can specify a specific version of 1.8, like:
+# setjdk 1.8.0_112
+# setjdk 1.8.0_141
 
 # from https://blog.jayway.com/2014/01/15/how-to-switch-jdk-version-on-mac-os-x-maverick/
 function setjdk() {
@@ -43,7 +47,17 @@ function removeFromPath() {
   export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
 }
 
-#setjdk 1.7
-#setjdk 1.8.0_112
-#setjdk 1.8.0_141
-setjdk 1.8
+# JDK 8
+# /Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/
+# setjdk 1.8
+
+# JDK 9
+# /Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/
+# setjdk 9
+
+# JDK 10
+# /Library/Java/JavaVirtualMachines/jdk-10.jdk/
+setjdk 10
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
