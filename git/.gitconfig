@@ -1,3 +1,6 @@
+[user]
+    name = Andrew Goodnough
+    email = agoodno@gmail.com
 [color]
     ui = auto
 [color "branch"]
@@ -17,17 +20,17 @@
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
 [alias]
-   st = status
-   co = checkout
-   cob = co -b
-   bs = branch -la
-   b = branch -l
-   br = branch
-   ll = log --stat --abbrev-commit
-   lg = log --graph --pretty=format:'%Cred%h%Creset - %C(bold blue)<%an>%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset' --abbrev-commit --date=relative
-   last = for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' --count=10
-[user]
-	name = Andrew Goodnough
-	email = agoodno@gmail.com
+    st = status
+    co = checkout
+    ba = branch -la
+    bl = branch -l
+    br = branch
+    diffs = diff --staged
+    ll = log --stat --abbrev-commit
+    lg = log --graph --pretty=format:'%Cred%h%Creset - %C(bold blue)<%an>%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset' --abbrev-commit --date=relative
+    lasts = for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' --count=10
+    last = log -1 HEAD
+    stage = add
+    unstage = reset HEAD --
