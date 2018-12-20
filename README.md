@@ -1,14 +1,26 @@
-dotfiles
+dot files
 ========
 
 Machine config files managed by GNU Stow.
 
-Installed with:
+# Setup
 
-stow -vv abcde -t $HOME
+Checkout the project to the root of the home directory. Stow
+automatically assumes the target destination of the files to be the
+parent directory so this is the easiest setup.
 
-stow -vv mint-bash -t $HOME
+    cd $HOME
+    git clone git@github.com:agoodno/stow.git
 
-The target flag is necessary because without it, stow assumes the
-dotfiles directory is at the root of $HOME and sets the target to
-one-level up by default which has no effect.
+Issue commands from within:
+
+    $HOME/stow
+
+
+# Install a stow package
+
+    stow -vv abcde
+
+    stow -vv mint-bash
+
+    stow -vv macos-bash
