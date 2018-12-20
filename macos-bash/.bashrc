@@ -1,63 +1,16 @@
-echo 'executing .bashrc'
+unset MAILCHECK
 
-#Addition of /usr/local/bin only needed by emacs (duplicates
-#/usr/local/bin path in terminal because terminal also picks it up
-#from /etc/paths but can live with this).
-export PATH="$HOME/local/sbin:$HOME/local/bin:/usr/local/sbin:/usr/local/bin:$PATH"
+export HISTCONTROL=ignoreboth
+
 export PS1="\u@\h:\w $ "
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
-#export AWS_DEFAULT_REGION=us-east-1
-#export AWS_REGION=us-east-1
-#export AWS_ACCESS_KEY_ID=XXX
-#export AWS_SECRET_ACCESS_KEY=XXX
-#export ALTERNATE_EDITOR=""
-export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9/emacsclient
 export GIT_EDITOR=$EDITOR
 
-# source /usr/local/opt/chruby/share/chruby/chruby.sh
-# source /usr/local/opt/chruby/share/chruby/auto.sh
-
-# Java setup
-## download from http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-## double-click to install .dmg
-## verify
-### ls /Library/Java/JavaVirtualMachines/
-### echo $JAVA_HOME; java -version
-### setjdk 1.8.0_141 (new one)
-### echo $JAVA_HOME; java -version
-#
-# You can specify a specific version of 1.8, like:
-# setjdk 1.8.0_112
-# setjdk 1.8.0_141
-
-# from https://blog.jayway.com/2014/01/15/how-to-switch-jdk-version-on-mac-os-x-maverick/
-function setjdk() {
-  if [ $# -ne 0 ]; then
-    removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
-    if [ -n "${JAVA_HOME+x}" ]; then
-      removeFromPath $JAVA_HOME
-    fi
-    export JAVA_HOME=`/usr/libexec/java_home -v $@`
-    export PATH=$JAVA_HOME/bin:$PATH
-  fi
-}
-
-function removeFromPath() {
-  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
-}
-
-# JDK 8
-# /Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/
-# setjdk 1.8
-
-# JDK 9
-# /Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/
-# setjdk 9
-
-# JDK 10
-# /Library/Java/JavaVirtualMachines/jdk-10.jdk/
-setjdk 10
+export PATH="$PATH:$HOME/bin"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/agoodnough/.sdkman"
+[[ -s "/Users/agoodnough/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/agoodnough/.sdkman/bin/sdkman-init.sh"
