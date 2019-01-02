@@ -12,5 +12,5 @@ export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/agoodnough/.sdkman"
-[[ -s "/Users/agoodnough/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/agoodnough/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/Users/andy/.sdkman"
+[[ -s "/Users/andy/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/andy/.sdkman/bin/sdkman-init.sh"
