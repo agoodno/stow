@@ -3,7 +3,7 @@ unset MAILCHECK
 export HISTCONTROL=ignoreboth
 
 export PS1="\u@\h:\w $ "
-export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9/emacsclient
+export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_10/emacsclient
 export GIT_EDITOR=$EDITOR
 
 export PATH="$PATH:$HOME/bin"
