@@ -1,0 +1,99 @@
+//homepage = "http://gmail.com";
+url_completion_use_history = true;
+
+minibuffer_history_max_items = 100;
+
+//define_mime_type_external_handler("application/pdf", "acroread");
+//define_mime_type_external_handler("*", "emacsclient");
+
+define_webjump("agoodno", "http://gitlab.wicourts.gov/ccap3-agoodno/commits?ref=jury");
+define_webjump("artifactory", "http://artifactory.ci.wicourts.gov/");
+define_webjump("ccap3", "http://gitlab.wicourts.gov/ccap3/commits?ref=jury");
+define_webjump("css-spec", "http://www.w3.org/TR/2007/CR-CSS21-20070719/");
+define_webjump("data-dictionary", "http://tomcruise/DataDictionary/");
+define_webjump("del", "http://delicious.com/search?p=%s&chk=&context=userposts%7Cagoodno&fr=del_icio_us&lc=");
+define_webjump("employee", "https://employee.wicourts.gov/SELFSERVICE/signon.html");
+define_webjump("form-specs", "http://tomcruise.wicourts.gov/localdoc/Specs/Forms/");
+define_webjump("javadoc", "http://tomcruise/localdoc/java/jdk-6/docs/api/");
+define_webjump("jenkins", "http://jenkins.ci.wicourts.gov/");
+define_webjump("jquery-api", "http://api.jquery.com/");
+define_webjump("jspwiki", "http://ccapjspwiki.wicourts.gov/Wiki.jsp?page=Main");
+define_webjump("lift", "http://scala-tools.org/mvnsites/liftweb-2.3/");
+define_webjump("pwd", "https://pwd.wicourts.gov/passwords/PwdLinuxRoot.html");
+define_webjump("scaladoc", "http://www.scala-lang.org/api/current/index.html");
+define_webjump("v1-story", "http://versionone.wicourts.gov/VersionOne/Default.aspx?menu=StoryBoardPage");
+define_webjump("v1-effort", "http://versionone.wicourts.gov/VersionOne/Default.aspx?menu=EffortListPage");
+define_webjump("wiki", "http://wiki/mediawiki/index.php5/Main_Page");
+
+define_delicious_webjumps("agoodno");
+
+add_hook("window_before_close_hook", function () {
+  var w = get_recent_conkeror_window();
+  var result = (w == null) ||
+    "y" == (yield w.minibuffer.read_single_character_option(
+      $prompt = "Quit Conkeror? (y/n)",
+      $options = ["y", "n"]));
+  yield co_return(result);
+});
+
+interactive("delicious-post",
+  "bookmark the page via delicious",
+  function (I) {
+    check_buffer(I.buffer, content_buffer);
+    let posturl = 'https://api.del.icio.us/v1/posts/add?&url=' +
+      encodeURIComponent(
+        load_spec_uri_string(
+          load_spec(I.buffer.top_frame))) +
+      '&description=' +
+      encodeURIComponent(
+        yield I.minibuffer.read(
+          $prompt = "name (required): ",
+          $initial_value = I.buffer.title)) +
+      '&tags=' +
+      encodeURIComponent(
+        yield I.minibuffer.read(
+          $prompt = "tags (space delimited): ")) +
+      '&extended=' +
+      encodeURIComponent(
+        yield I.minibuffer.read(
+        $prompt = "extended description: "));
+
+  try {
+    var content = yield send_http_request(
+      load_spec({uri: posturl}));
+    I.window.minibuffer.message(content.responseText);
+  } catch (e) { }
+});
+
+interactive("delicious-post-link",
+  "bookmark the link via delicious",
+  function (I) {
+    bo = yield read_browser_object(I) ;
+    mylink = load_spec_uri_string(
+      load_spec(encodeURIComponent(bo)));
+    check_buffer(I.buffer, content_buffer);
+    let postlinkurl = 'https://api.del.icio.us/v1/posts/add?&url=' +
+      mylink +
+      '&description=' +
+      encodeURIComponent(
+        yield I.minibuffer.read(
+          $prompt = "name (required): ",
+          $initial_value = bo.textContent)) +
+      '&tags=' +
+      encodeURIComponent(
+        yield I.minibuffer.read(
+          $prompt = "tags (space delimited): ")) +
+      '&extended=' +
+      encodeURIComponent(
+        yield I.minibuffer.read(
+          $prompt = "extended description: "));
+
+  try {
+    var content = yield send_http_request(
+        load_spec({uri: postlinkurl}));
+    I.window.minibuffer.message(content.responseText);
+  } catch (e) { }
+}, $browser_object = browser_object_links);
+
+define_key(default_global_keymap, "p", "delicious-post");
+define_key(default_global_keymap, "P", "delicious-post-link");

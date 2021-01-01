@@ -1,0 +1,1 @@
+~/opt/xulrunner/xulrunner /home/andrew/opt/conkeror/application.ini "$@" &> /dev/null &
