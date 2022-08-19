@@ -1,6 +1,7 @@
 [user]
     name = Andrew Goodnough
     email = agoodno@gmail.com
+    signingkey = 1AF3418BDE808EA5
 [color]
     ui = auto
 [color "branch"]
@@ -36,3 +37,9 @@
     unstage = reset HEAD --
 [fetch]
     prune = true
+[gpg]
+    program = /usr/local/MacGPG2/bin/gpg
+[tag]
+    forceSignAnnotated = true
+[commit]
+    gpgsign = true
