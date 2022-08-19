@@ -16,10 +16,10 @@ $ '
 
 # RPROMPT='$(ruby_prompt_info)'
 
-RPROMPT='[%D{%L:%M:%S %p}]'
+# RPROMPT='[%D{%L:%M:%S %p}]'
 
-TMOUT=1
+# TMOUT=1
 
-TRAPALRM() {
-    zle reset-prompt
-}
+# TRAPALRM() {
+#     zle reset-prompt
+# }
