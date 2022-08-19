@@ -42,4 +42,4 @@
 [tag]
     forceSignAnnotated = true
 [commit]
-    gpgsign = true
+    gpgsign = false
